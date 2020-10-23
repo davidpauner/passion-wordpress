@@ -12,16 +12,26 @@
 
     <h1>Passion</h1>
 
+    <section id="liste"></section>
 
-    <h1 id="navn"></h1>
-    <main id="indhold"></main>
+    <template>
+        <article class="bønne">
+            <h2 class="navn"></h2>
+            <p class="beskrivelse"></p>
+
+        </article>
+
+
+    </template>
+
+
 
 
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
-        //const listeElm = document.querySelector("#liste");
-        //const skabelon = document.querySelector("template").content;
+        const listeElm = document.querySelector("#liste");
+        const skabelon = document.querySelector("template").content;
 
         //det gamle google sheet endpoint er skiftet ud med nedenstående.
 
@@ -40,10 +50,16 @@
         function vis(data) {
             console.log(data)
 
-            //bønner.forEach(bønne => {
-            //const klon = skabelon.cloneNode(true);
-            document.querySelector("#navn").textContent = data.title.rendered;
-            document.querySelector("#indhold").innerHTML = data.content.rendered;
+            bønner.forEach(bønne => {
+                //const klon = skabelon.cloneNode(true);
+                klon.querySelector(".navn").textContent = bønne.title.rendered;
+                klon.querySelector(".beskrivelse").innerHTML = bønne.content.rendered;
+                listeElm.appendChild(klon);
+
+            })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
