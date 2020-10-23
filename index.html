@@ -40,11 +40,11 @@
         function vis(data) {
             console.log(data)
 
-            bønner.forEach(bønne => {
-                //const klon = skabelon.cloneNode(true);
-                document.querySelector(".navn").textContent = data.title.rendered;
-                document.querySelector(".indhold").innerHTML = data.content.rendered;
-            })
+            //bønner.forEach(bønne => {
+            //const klon = skabelon.cloneNode(true);
+            document.querySelector(".navn").textContent = data.title.rendered;
+            document.querySelector(".indhold").innerHTML = data.content.rendered;
+        })
 
         }
 
