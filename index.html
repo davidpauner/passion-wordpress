@@ -20,8 +20,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
-        const listeElm = document.querySelector("#liste");
-        const skabelon = document.querySelector("template").content;
+        //const listeElm = document.querySelector("#liste");
+        //const skabelon = document.querySelector("template").content;
 
         //det gamle google sheet endpoint er skiftet ud med nedenstående.
 
@@ -41,12 +41,14 @@
             console.log(data)
 
             bønner.forEach(bønne => {
-                const klon = skabelon.cloneNode(true);
-
-                klon.querySelector(".navn").textContent = data.title.rendered;
-                document.qsl(".indhold").innerHTML = data.content.rendered;
+                //const klon = skabelon.cloneNode(true);
+                document.querySelector(".navn").textContent = data.title.rendered;
+                document.querySelector(".indhold").innerHTML = data.content.rendered;
             })
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
