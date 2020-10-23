@@ -51,7 +51,7 @@
             console.log(bønner)
 
             bønner.forEach(bønne => {
-                //const klon = skabelon.cloneNode(true);
+                const klon = skabelon.cloneNode(true);
                 klon.querySelector(".navn").textContent = bønne.title.rendered;
                 klon.querySelector(".beskrivelse").innerHTML = bønne.content.rendered;
                 listeElm.appendChild(klon);
