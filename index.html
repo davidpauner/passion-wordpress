@@ -21,21 +21,32 @@
         document.addEventListener("DOMContentLoaded"), start);
 
         const listeElm = document.querySelector("#liste");
-        const url = "http://davidpauner.dk/kea/08_CMS/Passion/wordpress/wp-json/wp/v2/posts";
+        const skabelon = document.querySelector("template").content;
 
+        //det gamle google sheet endpoint er skiftet ud med nedenstående.
+
+        const url = "http://davidpauner.dk/kea/08_CMS/Passion/wp-json/wp/v2/pages/30";
+
+
+        //med fetch sender vi en HTTP request til WP for at hente json
         async function start() {
             const resspons = await fetch(url);
             const json = await resspons.json();
             vis(json);
         }
 
-        function vis(bønne) {
-            console.log(bønne)
-            document.querySelector(".navn").textContent = bønne.title.rendered;
-            document.qsl(".indhold").innerHTML = ret.content.rendered;
+
+        //når vi har modtaget data, kloner vi html template og lægger indholdet fra json ind en for en.
+        function vis(data) {
+            console.log(data)
+
+            bønner.forEach(bønne => {
+                const klon = skabelon.cloneNode(true);
+
+                klon.querySelector(".navn").textContent = data.title.rendered;
+                document.qsl(".indhold").innerHTML = data.content.rendered;
+            })
+
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
