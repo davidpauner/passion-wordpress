@@ -4,12 +4,38 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Passion</title>
     <link rel="stylesheet" href="">
 </head>
 
 <body>
-    <script src=""></script>
+
+    <h1>Passion</h1>
+
+    <section id="liste">
+        <h2 class="navn"></h2>
+        <p class="indhold"></p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded"), start);
+
+        const listeElm = document.querySelector("#liste");
+        const url = "http://davidpauner.dk/kea/08_CMS/Passion/wordpress/wp-json/wp/v2/posts";
+
+        async function start() {
+            const resspons = await fetch(url);
+            const json = await resspons.json();
+            vis(json);
+        }
+
+        function vis(bønne) {
+            console.log(bønne)
+            document.querySelector(".navn").textContent = bønne.title.rendered;
+            document.qsl(".indhold").innerHTML = ret.content.rendered;
+        }
+
+    </script>
 </body>
 
 </html>
