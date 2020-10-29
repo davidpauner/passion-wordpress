@@ -17,7 +17,11 @@
     <template>
         <article class="bønne">
             <h2 class="navn"></h2>
-            <p class="beskrivelse"></p>
+            <p class="pris"></p>
+            <p class="kaffe_type"></p>
+            <p class="kort_beskriv"></p>
+            <p class="oprindelse"></p>
+            <img class="image" src="" alt="">
 
         </article>
 
@@ -35,7 +39,7 @@
 
         //det gamle google sheet endpoint er skiftet ud med nedenstående.
 
-        const url = "http://davidpauner.dk/kea/08_CMS/Passion/wordpress/wp-json/wp/v2/posts";
+        const url = "http://davidpauner.dk/kea/08_CMS/Passion/wordpress/wp-json/wp/v2/kaffe";
 
 
         //med fetch sender vi en HTTP request til WP for at hente json
@@ -52,14 +56,15 @@
 
             bønner.forEach(bønne => {
                 const klon = skabelon.cloneNode(true);
-                klon.querySelector(".navn").textContent = bønne.title.rendered;
-                klon.querySelector(".beskrivelse").innerHTML = bønne.content.rendered;
+                klon.querySelector(".navn").textContent = kaffe.title.rendered;
+                klon.querySelector(".pris").textContent = kaffe.pris;
+                klon.querySelector(".kaffe_type").textContent = kaffe.kaffe_type;
+                klon.querySelector(".kort_beskriv").textContent = kaffe.kort_beskriv;
+                klon.querySelector(".oprindelse").textContent = kaffe.oprindelse;
+                klon.querySelector(".image").src = kaffe.billede.guid;
                 listeElm.appendChild(klon);
 
             })
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
